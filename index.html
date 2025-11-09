@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Thoteca — A Sabedoria que Conecta</title>
+  
+  <!-- Novas fontes do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="logo" id="logo-home" style="cursor: pointer;">T</div>
+    <div>
+      <h1>Thoteca</h1>
+      <div class="small">A sabedoria que conecta</div>
+    </div>
+
+    <nav id="topnav">
+      <a href="#/" data-route>Início</a>
+      <a href="#/genres" data-route>Gêneros</a>
+      <a href="#/releases" data-route>Lançamentos</a>
+      <a href="#/write" data-route>Escrever</a>
+      <a href="#/send" data-route>Enviar</a>
+    </nav>
+
+    <div style="flex:1"></div>
+    
+    <div class="theme-toggle-container">
+        <button class="theme-toggle" id="theme-toggle" title="Alternar tema">☀️</button>
+    </div>
+    
+    <div id="user-area"><button class="btn" id="open-login">Login</button></div>
+  </header>
+
+  <main>
+    <aside class="sidebar">
+      <div class="profile-mini">
+        <div class="avatar" id="sidebar-avatar">MV</div>
+        <div>
+          <div id="sidebar-name">Visitante</div>
+          <div class="muted" id="sidebar-sub">Conta não logada</div>
+        </div>
+      </div>
+
+      <div class="nav-side">
+        <button data-nav="saved">Salvos <span id="saved-count" class="muted">0</span></button>
+        <button data-nav="history">Histórico <span id="history-count" class="muted">0</span></button>
+        <button data-nav="profile">Perfil</button>
+        <button data-nav="login">Login</button>
+      </div>
+
+      <hr>
+      <div class="muted-note">Envie PDF ou imagens (JPG/PNG). Ou escreva seu próprio livro diretamente no site!</div>
+    </aside>
+
+    <section class="content" id="app"></section>
+  </main>
+
+  <footer>Feito para projeto de ADS — Thoteca © 2025</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
