@@ -81,4 +81,5 @@ O objetivo do Thoteca é modernizar a forma como bibliotecas físicas e digitais
 ✨ Desenvolvido por
 
 👨‍💻 Davi Henrique, João Victor, Italo Gustavo Silva Araujo
+
 📚 Projeto: Thoteca – Sistema de Gerenciamento de Biblioteca Web.
