@@ -4,72 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Thoteca — A Sabedoria que Conecta</title>
-  
+
+  <!-- SEO -->
+  <meta name="description" content="Thoteca — Uma biblioteca digital interativa para leitura, escrita e compartilhamento de sabedoria.">
+  <meta name="author" content="Projeto ADS - Thoteca © 2025">
+
+  <!-- Content Security Policy -->
+  <!-- OBS: Mantive 'unsafe-inline' em style porque você usa estilos inline.
+       Para endurecer mais, o ideal é remover estilos inline no HTML. -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 script-src 'self' https://cdnjs.cloudflare.com;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 img-src 'self' data: blob:;
+                 connect-src 'self';
+                 object-src 'none';
+                 frame-ancestors 'self';
+                 base-uri 'self';">
+
   <!-- Novas fontes do Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-  <script>
-    if (window.pdfjsLib) {
-      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-    }
-  </script>
+
+  <!--  pdf.js com Subresource Integrity (SUBSTITUIR O HASH REAL DEPOIS) -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"
+    integrity="sha384-HASH_AQUI_SUBSTITUIR"
+    crossorigin="anonymous"
+    defer></script>
 </head>
 
 <body>
   <header>
-    <div class="logo" id="logo-home" style="cursor: pointer;">T</div>
+    <div class="logo" id="logo-home" style="cursor: pointer;" title="Ir para a página inicial" aria-label="Ir para a página inicial">T</div>
     <div>
       <h1>Thoteca</h1>
       <div class="small">A sabedoria que conecta</div>
     </div>
 
-    <nav id="topnav">
-      <a href="#/" data-route>Início</a>
-      <a href="#/genres" data-route>Gêneros</a>
-      <a href="#/releases" data-route>Lançamentos</a>
-      <a href="#/write" data-route>Escrever</a>
-      <a href="#/send" data-route>Enviar</a>
+    <nav id="topnav" aria-label="Navegação principal">
+      <a href="#/" data-route title="Ir para o início">Início</a>
+      <a href="#/genres" data-route title="Ver gêneros disponíveis">Gêneros</a>
+      <a href="#/releases" data-route title="Ver lançamentos recentes">Lançamentos</a>
+      <a href="#/write" data-route title="Escrever um novo livro">Escrever</a>
+      <a href="#/send" data-route title="Enviar um arquivo PDF ou imagem">Enviar</a>
     </nav>
 
     <div style="flex:1"></div>
     
     <div class="theme-toggle-container">
-        <button class="theme-toggle" id="theme-toggle" title="Alternar tema">☀️</button>
+      <button 
+        class="theme-toggle" 
+        id="theme-toggle" 
+        title="Alternar entre tema claro e escuro" 
+        aria-label="Alternar tema"
+      >☀️</button>
     </div>
     
-    <div id="user-area"><button class="btn" id="open-login">Login</button></div>
+    <div id="user-area">
+      <button class="btn" id="open-login" title="Fazer login na conta" aria-label="Fazer login">Login</button>
+    </div>
   </header>
 
   <main>
-    <aside class="sidebar">
+    <aside class="sidebar" aria-label="Barra lateral de navegação">
       <div class="profile-mini">
-        <div class="avatar" id="sidebar-avatar">MV</div>
+        <div class="avatar" id="sidebar-avatar" aria-label="Avatar do usuário">MV</div>
         <div>
           <div id="sidebar-name">Visitante</div>
           <div class="muted" id="sidebar-sub">Conta não logada</div>
         </div>
       </div>
 
-      <div class="nav-side">
-        <button data-nav="saved">Salvos <span id="saved-count" class="muted">0</span></button>
-        <button data-nav="history">Histórico <span id="history-count" class="muted">0</span></button>
-        <button data-nav="profile">Perfil</button>
-        <button data-nav="login">Login</button>
+      <div class="nav-side" role="navigation" aria-label="Menu lateral">
+        <button data-nav="saved" aria-label="Ver livros salvos">Salvos <span id="saved-count" class="muted">0</span></button>
+        <button data-nav="history" aria-label="Ver histórico de leitura">Histórico <span id="history-count" class="muted">0</span></button>
+        <button data-nav="profile" aria-label="Ver perfil do usuário">Perfil</button>
+        <button data-nav="login" aria-label="Acessar área de login">Login</button>
       </div>
 
       <hr>
       <div class="muted-note">Envie PDF ou imagens (JPG/PNG). Ou escreva seu próprio livro diretamente no site!</div>
     </aside>
 
-    <section class="content" id="app"></section>
+    <section class="content" id="app" aria-live="polite"></section>
   </main>
 
   <footer>Feito para projeto de ADS — Thoteca © 2025</footer>
 
-  <script src="script.js"></script>
+  <!-- script principal (sem inline JS) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
